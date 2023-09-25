@@ -1,0 +1,1 @@
+export const _apiurldoctor="http://localhost:3001/doctor/"
