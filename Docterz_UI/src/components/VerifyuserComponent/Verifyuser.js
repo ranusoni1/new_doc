@@ -1,15 +1,18 @@
-import { Navigate , useParams } from 'react-router-dom';
-import { useState , useEffect } from 'react';
-import { _apiurluser } from '../../api_url'; 
+import { Navigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import axios from 'axios';
+import { _apiurluser } from '../../api_url';
+
+
 
 function Verifyuser()
 {
     const params = useParams(); 
 
     useEffect(()=>{
-
-     axios.get(_apiurluser+"fetch?email="+params.email).then((response)=>{
+        //
+        alert(params.email)
+     axios.get(_apiurluser +"fetch?email="+params.email).then((response)=>{
         if(response.data[0].__v==0)
         {
             var updateDetails={"condition_obj":{"email":params.email},"content_obj":{"status":1,"__v":1}}; 

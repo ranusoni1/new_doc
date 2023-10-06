@@ -57,7 +57,7 @@ function App() {
                <Route path="/epuser" element={<EPuser/>}></Route>
                <Route path="/adddoctor" element={<AddDoctor/>}></Route>
                <Route path="/managedoctor" element={<ManageDoctor/>}></Route>
-               <Route path="/verifydoctor" element={<VerifyDoctor/>}></Route>
+               <Route path="/verifydoctor/:email" element={<VerifyDoctor/>}></Route>
                <Route path="/doctorlogin" element={<DoctorLogin/>}></Route>
                <Route path="/epdoctor" element={<EPdoctor/>}></Route>
                <Route path="/cpdoctor" element={<CPDoctor/>}></Route>

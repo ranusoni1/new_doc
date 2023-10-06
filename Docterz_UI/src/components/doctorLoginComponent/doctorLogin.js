@@ -34,6 +34,7 @@ function DoctorLogin() {
         localStorage.setItem("specialization", obj.docsdetails.specialization);
         localStorage.setItem("designation", obj.docsdetails.designation);
         localStorage.setItem("contactdescription", obj.docsdetails.contactdescription);
+        localStorage.setItem("profilepic", obj.docsdetails.profilepic);
         localStorage.setItem("role", obj.docsdetails.role);
         localStorage.setItem("info", obj.docsdetails.info);
         

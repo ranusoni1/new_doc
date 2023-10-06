@@ -8,7 +8,7 @@ function AddDoctor() {
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
-  const [experience,setExperience] =useState();
+  const [experience, setExperience] = useState();
   const [specialization, setSpecialization] = useState();
   const [designation, setDesignation] = useState();
   const [personalmobile, setPersonalMobile] = useState();
@@ -16,10 +16,51 @@ function AddDoctor() {
   const [clinicaddress, setClinicAddress] = useState();
   const [residentialaddress, setResidentialAddress] = useState();
   const [contactdescription, setContctDescription] = useState();
+  const [file, setFile] = useState();
   const [output, setOutput] = useState();
 
+
+  const handleChange = (event) => {
+    setFile(event.target.files[0])
+  }
+
+
   const handleSubmit = () => {
-    const userDetails = {
+    var formdata = new FormData
+    formdata.append("name", name)
+    formdata.append("email", email)
+    formdata.append("experience", experience)
+    formdata.append("specialization", specialization)
+    formdata.append("designation", designation)
+    formdata.append("personalmobile", personalmobile)
+    formdata.append("clinicmobile", clinicmobile)
+    formdata.append("clinicaddress", clinicaddress)
+    formdata.append("residentialaddress", residentialaddress)
+    formdata.append("contactdescription", contactdescription)
+    formdata.append("profilepic", file)
+
+    const config = { 'content-type': 'multipart/form-data' };
+
+    axios.post(_apiurldoctor + "save", formdata, config).then((result) => {
+      setName("");
+      setEmail("");
+      setExperience("")
+      setSpecialization("")
+      setDesignation("")
+      setClinicAddress("");
+      setResidentialAddress("");
+      setPersonalMobile("")
+      setClinicMobile("");
+      setContctDescription("")
+      setFile("")
+      setOutput("user register successfully.... ")
+
+    }).catch((error) => {
+      setOutput("Doctor registration failed....");
+    });
+
+
+    /*const userDetails = {
       "name": name, "email": email,"experience":experience, "specialization": specialization, "designation": designation, "personalmobile": personalmobile, "clinicmobile": clinicmobile, "clinicaddress": clinicaddress, "residentialaddress": residentialaddress, "contactdescription": contactdescription
     };
     console.log(userDetails);
@@ -41,6 +82,7 @@ function AddDoctor() {
       setOutput("user registertration failed.... ")
     })
 
+    */
 
   }
 
@@ -142,12 +184,23 @@ function AddDoctor() {
 
 
 
-
                       <div class="form-outline mb-4">
                         <input type="text" id="form3Example97" class="form-control form-control-lg" value={clinicmobile} onChange={e => setClinicMobile(e.target.value)} />
                         <label class="form-label" for="form3Example97">Clinic Mobile</label>
                       </div>
 
+
+                      {/* <div>
+                        <label for="file">Profile Pic. :</label>
+                        <input type="file" class="form-control" onChange={handleChange} />
+                      </div> */}
+
+
+
+                      <div class="form-outline mb-4">
+                        <input type="file" id="form3Example97" class="form-control form-control-lg"  onChange={handleChange} />
+                        <label class="form-label" for="file">profile pic</label>
+                      </div>
 
 
                       <div class="form-outline mb-4">
@@ -182,7 +235,7 @@ function AddDoctor() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
       {/* Register End */}
     </>
   );

@@ -14,8 +14,9 @@ function usersendmail(email,password) {
         to: email,
         subject: 'Verification Email By Doctorz',
         
+      
         html: "<h1>Welcome to Doctorz</h1><p>You have successfully register with our app , your login credentials are attached below</p><h2>Username : "+email+"</h2><h2>Password : "+password+"</h2><h4>you are a user then click on this link to redirect..</h4> http://localhost:3000/verifyuser/"+email
-       
+      
         
       
       };

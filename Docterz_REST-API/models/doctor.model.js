@@ -75,6 +75,7 @@ const doctorschema=mongoose.Schema({
     password:String,
     role:String,
     status:Number,
+    profilepic:String,
     info:String
 
 

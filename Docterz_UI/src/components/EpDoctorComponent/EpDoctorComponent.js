@@ -31,7 +31,7 @@ function EPdoctor() {
      setPersonalMobile(result.data[0].personalmobile);
      setClinicMobile(result.data[0].clinicmobile);
      setClinicAddress(result.data[0].clinicaddress);
-     setResidentialAddress(result.data[0].clinicmobile);
+     setResidentialAddress(result.data[0].residentialaddress);
      setContactDescription(result.data[0].contactdescription);
     
     }).catch((error)=>{
